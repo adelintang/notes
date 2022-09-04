@@ -1,0 +1,79 @@
+:root {
+  --primary-color: #425a7d;
+  --bg-color: #eaeaea;
+  --font-color: #fff;
+  --primary-font: 'Oswald';
+}
+
+@font-face {
+  font-family: 'Oswald';
+  src: url('asset/fonts/Oswald-Regular.woff') format('woff');
+}
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  text-align: center;
+  background-color: var(--bg-color);
+  color: var(--font-color);
+  font-family: var(--primary-font), Arial, Helvetica, sans-serif;
+}
+
+.container {
+  width: 80%;
+  margin: auto;
+  padding: 1em;
+  background-color: var(--primary-color);
+  display: grid;
+  gap: 50px;
+}
+
+/* section todo */
+.todo {
+  height: 100vh;
+  /* background-color: limegreen; */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+.todo .list {
+  width: 60%;
+  height: 2.5em;
+  /* background-color: red; */
+  display: flex;
+  justify-content: space-around;
+}
+
+.todo .list label {
+  line-height: 2.5rem;
+  font-size: 1.2rem;
+}
+
+::-webkit-input-placeholder {
+  color: var(--font-color);
+}
+
+.todo .list input {
+  background-color: var(--primary-color);
+  width: 80%;
+  border: none;
+  outline: 0;
+  border: 2px solid #4a88f7;
+  border-radius: 3px;
+  color: var(--font-color);
+  font-size: 1.2rem;
+}
+
+.todo .btn{
+  border: none;
+  background-color: #4a88f7;
+  color: var(--font-color);
+  padding: 0.6em 1.4em;
+  border-radius: 3px;
+  cursor: pointer;
+}
