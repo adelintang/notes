@@ -43,13 +43,14 @@ body {
 
 .todo .list {
   width: 60%;
-  height: 2.5em;
+  height: 2.7em;
   /* background-color: red; */
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
 }
 
 .todo .list label {
+  width: 20%;
   line-height: 2.5rem;
   font-size: 1.2rem;
 }
