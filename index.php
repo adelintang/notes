@@ -1,6 +1,20 @@
 <?php
+// koneksi database
+$conn = mysqli_connect("localhost", "root", "", "data_notes");
 
-var_dump("hello world");
+// ambil data dari table / query table
+$datas = query("SELECT * FROM datauser");
+
+function query($query)
+{
+  global $conn;
+  $result = mysqli_query($conn, $query);
+  $rows = [];
+  while ($row = mysqli_fetch_assoc($result)) {
+    $rows[] = $row;
+  }
+  return $rows;
+}
 
 ?>
 
@@ -22,27 +36,25 @@ var_dump("hello world");
       <thead>
         <tr>
           <th>No.</th>
+          <th>No.id</th>
           <th>Topic</th>
           <th>Description</th>
           <th>Date & Time</th>
         </tr>
       </thead>
-
-      <tbody>
-        <tr>
-          <td>1</td>
-          <td>Javascript</td>
-          <td>Learn Variable</td>
-          <td>20 Agustus 2022. 16:00</td>
-        </tr>
-        <tr>
-          <td>2</td>
-          <td>PHP</td>
-          <td>Learn Data Type</td>
-          <td>20 Agustus 2022. 19:00</td>
-        </tr>
-      </tbody>
-
+      <?php $i = 1; ?>
+      <?php foreach ($datas as $data) : ?>
+        <tbody>
+          <tr>
+            <td><?= $i; ?></td>
+            <td><?= $data["id_note"]; ?></td>
+            <td><?= $data["topic"]; ?></td>
+            <td><?= $data["description"]; ?></td>
+            <td><?= $data["dateTime"]; ?></td>
+          </tr>
+        </tbody>
+        <?php $i++; ?>
+      <?php endforeach; ?>
     </table>
   </div>
 </body>
