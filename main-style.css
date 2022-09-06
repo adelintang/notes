@@ -1,5 +1,14 @@
 :root {
+  --primary-color: #425a7d;
+  --bg-color: #eaeaea;
+  --second-color: #1a6fed;
+  --font-color: #fff;
+  --primary-font: 'Oswald';
+}
 
+@font-face {
+  font-family: 'Oswald';
+  src: url('asset/fonts/Oswald-Regular.woff') format('woff');
 }
 
 * {
@@ -9,26 +18,41 @@
 
 body {
   text-align: center;
-  color: #fff;
+  font-family: var(--primary-font);
+  color: var(--font-color);
+  background-color: var(--bg-color);
 }
 
 .container {
   width: 80%;
   margin: auto;
-  background-color: #425a7d;
+  background-color: var(--primary-color);
   padding: 1em;
   display: grid;
   gap: 30px;
 }
 
+.container .tombol-tambah {
+  display: inline-block;
+  width: 10%;
+  margin: auto;
+  background-color: var(--second-color);
+  color: var(--font-color);
+  text-decoration: none;
+  border-radius: 3px;
+  /* padding: 0 0.5em; */
+}
+
 table {
   width: 100%;
-  border: 1px solid #1a6fed;
+  border: 1px solid var(--second-color);
   border-collapse: collapse;
-  
+  margin-bottom: 50vh;
+  font-size: 1.1rem;
 }
 
 table tr {
-  border: 1px solid #1a6fed;
-  height: 50px;
+  border: 1px solid var(--second-color);
+  height: 3em;
+  /* height: 50px; */
 }

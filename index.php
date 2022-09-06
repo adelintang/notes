@@ -21,7 +21,7 @@ $datas = query("SELECT * FROM datauser");
   <div class="container">
     <h1>Data Notes</h1>
 
-    <a href="page-input/input.php">Tambah Data</a>
+    <a href="page-input/input.php" class="tombol-tambah">Tambah +</a>
     <table cellpadding="10" cellspacing="0">
       <thead>
         <tr>
