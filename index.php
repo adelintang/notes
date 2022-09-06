@@ -1,20 +1,8 @@
 <?php
-// koneksi database
-$conn = mysqli_connect("localhost", "root", "", "data_notes");
+// memanggil file function
+require 'function.php';
 
-// ambil data dari table / query table
 $datas = query("SELECT * FROM datauser");
-
-function query($query)
-{
-  global $conn;
-  $result = mysqli_query($conn, $query);
-  $rows = [];
-  while ($row = mysqli_fetch_assoc($result)) {
-    $rows[] = $row;
-  }
-  return $rows;
-}
 
 ?>
 
@@ -32,11 +20,12 @@ function query($query)
   <div class="container">
     <h1>Data Notes</h1>
 
+    <a href="page-input/input.php">Tambah Data</a>
     <table border="1" cellpadding="10" cellspacing="0">
       <thead>
         <tr>
           <th>No.</th>
-          <th>No.id</th>
+          <!-- <th>No.id</th> -->
           <th>Topic</th>
           <th>Description</th>
           <th>Date & Time</th>
@@ -47,7 +36,7 @@ function query($query)
         <tbody>
           <tr>
             <td><?= $i; ?></td>
-            <td><?= $data["id_note"]; ?></td>
+            <!-- <td><?= $data["id_note"]; ?></td> -->
             <td><?= $data["topic"]; ?></td>
             <td><?= $data["description"]; ?></td>
             <td><?= $data["dateTime"]; ?></td>
