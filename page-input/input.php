@@ -45,15 +45,15 @@ if (isset($_POST["submit"])) {
 
       <div class="list">
         <label for="topic">Topic</label>
-        <input type="text" id="topic" name="topic" placeholder="write your topic..." autocomplete="off">
+        <input type="text" id="topic" name="topic" placeholder="write your topic..." autocomplete="off" required>
       </div>
       <div class="list">
         <label for="description">Description</label>
-        <input type="text" id="desciption" name="description" placeholder="write your description..." autocomplete="off">
+        <input type="text" id="desciption" name="description" placeholder="write your description..." autocomplete="off" required>
       </div>
       <div class="list">
         <label for="dateTime">Date</label>
-        <input type="datetime-local" id="dateTime" name="dateTime" placeholder="write your date...">
+        <input type="datetime-local" id="dateTime" name="dateTime" placeholder="write your date..." required>
       </div>
 
       <button type="submit" name="submit" class="btn">Save</button>

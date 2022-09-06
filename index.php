@@ -14,6 +14,7 @@ $datas = query("SELECT * FROM datauser");
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>View Page</title>
+  <link rel="stylesheet" href="main-style.css?v=<?= time(); ?>">
 </head>
 
 <body>
@@ -21,7 +22,7 @@ $datas = query("SELECT * FROM datauser");
     <h1>Data Notes</h1>
 
     <a href="page-input/input.php">Tambah Data</a>
-    <table border="1" cellpadding="10" cellspacing="0">
+    <table cellpadding="10" cellspacing="0">
       <thead>
         <tr>
           <th>No.</th>
