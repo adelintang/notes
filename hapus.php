@@ -13,9 +13,9 @@ if (hapus($id_note) > 0) {
   ";
 } else {
   echo "
-  <script>
-    alert('note gagal dihapus');
-    document.location.href='index.php';
-  </script>
-";
+      <script>
+        alert('note gagal dihapus');
+        document.location.href='index.php';
+      </script>
+  ";
 }

@@ -1,7 +1,8 @@
 :root {
   --primary-color: #425a7d;
   --bg-color: #eaeaea;
-  --second-color: #1a6fed;
+  /* --second-color: #1a6fed; */
+  --second-color: #4a88f7;
   --font-color: #fff;
   --primary-font: 'Oswald';
 }
@@ -46,12 +47,14 @@ body {
 .tombol-update, .tombol-delete {
   text-decoration: none;
   color: var(--font-color);
-  background-color: green;
+  background-color: #46a094;
   border-radius: 3px;
+  font-size: 1rem;
+  padding: 0 0.5em;
 }
 
 .tombol-delete {
-  background-color: red;
+  background-color: #fd292f;
 }
 
 table {

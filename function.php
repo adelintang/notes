@@ -40,5 +40,5 @@ function hapus($id_note)
 
   mysqli_query($conn, "DELETE FROM dataUser WHERE id_note = '$id_note'");
 
-  mysqli_affected_rows($conn);
+  return mysqli_affected_rows($conn);
 }
