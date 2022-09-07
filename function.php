@@ -32,3 +32,13 @@ function tambah($data)
   mysqli_query($conn, $query);
   return mysqli_affected_rows($conn);
 }
+
+// hapus data 
+function hapus($id_note)
+{
+  global $conn;
+
+  mysqli_query($conn, "DELETE FROM dataUser WHERE id_note = '$id_note'");
+
+  mysqli_affected_rows($conn);
+}

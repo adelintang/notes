@@ -30,6 +30,7 @@ $datas = query("SELECT * FROM datauser");
           <th>Topic</th>
           <th>Description</th>
           <th>Date & Time</th>
+          <th>Action</th>
         </tr>
       </thead>
       <?php $i = 1; ?>
@@ -41,6 +42,10 @@ $datas = query("SELECT * FROM datauser");
             <td><?= $data["topic"]; ?></td>
             <td><?= $data["description"]; ?></td>
             <td><?= $data["dateTime"]; ?></td>
+            <td>
+              <a class="tombol-update" href="">Update</a> |
+              <a class="tombol-delete" href="hapus.php?id_note=<?= $data["id_note"]; ?>" onclick="return confirm('apakah yakin')" ;>Delete</a>
+            </td>
           </tr>
         </tbody>
         <?php $i++; ?>
