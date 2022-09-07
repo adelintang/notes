@@ -7,14 +7,14 @@ $id_note = $_GET["id_note"];
 if (hapus($id_note) > 0) {
   echo "
     <script>
-      alert('data berhasil dihapus');
+      alert('note berhasil dihapus');
       document.location.href='index.php';
     </script>
   ";
 } else {
   echo "
   <script>
-    alert('data berhasil dihapus');
+    alert('note gagal dihapus');
     document.location.href='index.php';
   </script>
 ";
