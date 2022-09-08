@@ -42,3 +42,25 @@ function hapus($id_note)
 
   return mysqli_affected_rows($conn);
 }
+
+// update data
+function ubah($data)
+{
+  global $conn;
+
+  // ambil data dari tiap elemen dalam form 
+  $id_note = $data["id_note"];
+  $topic = htmlspecialchars($data["topic"]);
+  $description = htmlspecialchars($data["description"]);
+  $dateTime = htmlspecialchars($data["dateTime"]);
+
+  // query update data
+  $query = "UPDATE dataUser SET
+        topic = '$topic',
+        description = '$description',
+        dateTime = '$dateTime'
+        WHERE id_note = $id_note";
+
+  mysqli_query($conn, $query);
+  return mysqli_affected_rows($conn);
+}

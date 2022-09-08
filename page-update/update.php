@@ -2,20 +2,25 @@
 // memanggil file function
 require '../function.php';
 
+// ambil data dari url dengan method get
+$id_note = $_GET["id_note"];
+
+// lakukan query untuk mengambil data di tabel
+$data = query("SELECT * FROM dataUser WHERE id_note = '$id_note'")[0];
+
 // cek apakah tombol sumbit sudah dipencet atau belum
 if (isset($_POST["submit"])) {
-  // var_dump($_POST);
-  if (tambah($_POST) > 0) {
+  if (ubah($_POST) > 0) {
     echo "
         <script>
-          alert('note berhasil ditambahkan');
+          alert('note berhasil di update');
           document.location.href='../index.php';
         </script>
     ";
   } else {
     echo "
       <script>
-        alert('note gagal ditambahkan');
+        alert('note gagal di update');
         document.location.href='../index.php';
       </script>
     ";
@@ -31,8 +36,8 @@ if (isset($_POST["submit"])) {
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Input Page</title>
-  <link rel="stylesheet" href="input-style.css?v=<?= time(); ?>">
+  <title>Update Page</title>
+  <link rel="stylesheet" href="update-style.css?v=<?= time(); ?>">
 </head>
 
 <body>
@@ -43,20 +48,21 @@ if (isset($_POST["submit"])) {
     <form action="" method="post" class="todo">
       <h2 class="judul-todo">What your focus today ?</h2>
 
+      <input type="hidden" name="id_note" value="<?= $data["id_note"]; ?>">
       <div class="list">
         <label for="topic">Topic</label>
-        <input type="text" id="topic" name="topic" placeholder="write your topic..." autocomplete="off" required>
+        <input type="text" id="topic" name="topic" placeholder="write your topic..." autocomplete="off" required value="<?= $data["topic"]; ?>">
       </div>
       <div class="list">
         <label for="description">Description</label>
-        <input type="text" id="desciption" name="description" placeholder="write your description..." autocomplete="off" required>
+        <input type="text" id="desciption" name="description" placeholder="write your description..." autocomplete="off" required value="<?= $data["description"]; ?>">
       </div>
       <div class="list">
         <label for="dateTime">Date</label>
-        <input type="datetime-local" id="dateTime" name="dateTime" placeholder="write your date..." required>
+        <input type="datetime-local" id="dateTime" name="dateTime" placeholder="write your date..." required value="<?= $data["dateTime"]; ?>">
       </div>
 
-      <button type="submit" name="submit" class="btn">Save</button>
+      <button type="submit" name="submit" class="btn">Update</button>
       <a href="../index.php">Lihat Data</a>
     </form>
 

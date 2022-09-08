@@ -43,7 +43,7 @@ $datas = query("SELECT * FROM datauser");
             <td><?= $data["description"]; ?></td>
             <td><?= $data["dateTime"]; ?></td>
             <td>
-              <a class="tombol-update" href="">Update</a> |
+              <a class="tombol-update" href="page-update/update.php?id_note=<?= $data["id_note"]; ?>">Update</a> |
               <a class="tombol-delete" href="hapus.php?id_note=<?= $data["id_note"]; ?>" onclick="return confirm('apakah yakin')" ;>Delete</a>
             </td>
           </tr>
