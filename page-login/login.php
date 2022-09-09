@@ -11,14 +11,14 @@
 
 <body>
   <div class="container">
-    <div class="box">
+    <form action="" method="post" class="box">
       <h1>Login</h1>
       <div class="item">
-        <input type="text" placeholder="Masukkan username"><br>
-        <input type="password" placeholder="Masukkan password">
+        <input type="text" name="user" placeholder="Masukkan username" required autocomplete="off"><br>
+        <input type="password" name="pass" placeholder="Masukkan password" required autocomplete="off">
       </div>
       <button type="submit">Login</button>
-    </div>
+    </form>
   </div>
 </body>
 
