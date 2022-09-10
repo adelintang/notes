@@ -4,6 +4,11 @@ require 'function.php';
 
 $datas = query("SELECT * FROM datauser");
 
+// ketika tombol search di tekan
+if (isset($_POST["keyword"])) {
+  $datas = cari($_POST["keyword"]);
+}
+
 ?>
 
 <!DOCTYPE html>
@@ -22,11 +27,16 @@ $datas = query("SELECT * FROM datauser");
     <h1>Data Notes</h1>
 
     <a href="page-input/input.php" class="tombol-tambah">Tambah +</a>
+
+    <form action="" method="post" class="search">
+      <input type="text" name="keyword" placeholder="Masukkan Keyword..." autofocus autocomplete="off">
+      <button type="submit" name="cari">Cari</button>
+    </form>
+
     <table cellpadding="10" cellspacing="0">
       <thead>
         <tr>
           <th>No.</th>
-          <!-- <th>No.id</th> -->
           <th>Topic</th>
           <th>Description</th>
           <th>Date & Time</th>
@@ -38,7 +48,6 @@ $datas = query("SELECT * FROM datauser");
         <tbody>
           <tr>
             <td><?= $i; ?></td>
-            <!-- <td><?= $data["id_note"]; ?></td> -->
             <td><?= $data["topic"]; ?></td>
             <td><?= $data["description"]; ?></td>
             <td><?= $data["dateTime"]; ?></td>

@@ -44,6 +44,32 @@ body {
   /* padding: 0 0.5em; */
 }
 
+::-webkit-input-placeholder {
+  color: var(--font-color);
+}
+
+.container .search input {
+  border: none;
+  outline: 0;
+  border: 2px solid #A0C0D6;
+  width: 25%;
+  height: 2.2em;
+  box-sizing: border-box;
+  border-radius: 3px;
+  background-color: var(--primary-color);
+  color: var(--font-color);
+}
+
+.container .search button {
+  width: 5%;
+  height: 2.2em;
+  cursor: pointer;
+  background-color: #A0C0D6;
+  color: #333;
+  border: none;
+  border-radius: 3px;
+}
+
 .tombol-update, .tombol-delete {
   text-decoration: none;
   color: var(--font-color);

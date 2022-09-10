@@ -64,3 +64,15 @@ function ubah($data)
   mysqli_query($conn, $query);
   return mysqli_affected_rows($conn);
 }
+
+// search data
+function cari($keyword)
+{
+  $query = "SELECT * FROM dataUser WHERE
+          topic LIKE '%$keyword%' OR
+          description LIKE '%$keyword%' OR
+          dateTime LIKE '%$keyword%'
+ ";
+
+  return query($query);
+}
