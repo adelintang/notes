@@ -1,4 +1,11 @@
 <?php
+session_start();
+
+if (!isset($_SESSION["login"])) {
+  header("Location: ../page-login/login.php");
+  exit;
+}
+
 // memanggil file function
 require '../function.php';
 

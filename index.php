@@ -1,4 +1,11 @@
 <?php
+session_start();
+
+if (!isset($_SESSION["login"])) {
+  header("Location: page-login/login.php");
+  exit;
+}
+
 // memanggil file function
 require 'function.php';
 
@@ -27,6 +34,7 @@ if (isset($_POST["keyword"])) {
     <h1>Data Notes</h1>
 
     <a href="page-input/input.php" class="tombol-tambah">Tambah +</a>
+    <a href="logout.php" class="logout">Logout</a>
 
     <form action="" method="post" class="search">
       <input type="text" name="keyword" placeholder="Masukkan Keyword..." autofocus autocomplete="off">

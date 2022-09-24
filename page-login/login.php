@@ -1,3 +1,36 @@
+<?php
+session_start();
+
+if (isset($_SESSION["login"])) {
+  header("Location: ../index.php");
+  exit;
+}
+
+if (isset($_POST["login"])) {
+  $user = $_POST["user"];
+  $pass = $_POST["pass"];
+
+  if ($user == 'admin' && $pass == 'admin123') {
+    // set session
+    $_SESSION["login"] = true;
+
+    echo "
+      <script>
+        alert('Login Berhasil');
+        document.location.href='../index.php';
+      </script>
+    ";
+  } else {
+    echo "
+      <script>
+        alert('Username / Password salah!');
+     </script>
+    ";
+  }
+}
+
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -17,7 +50,7 @@
         <input type="text" name="user" placeholder="Masukkan username" required autocomplete="off"><br>
         <input type="password" name="pass" placeholder="Masukkan password" required autocomplete="off">
       </div>
-      <button type="submit">Login</button>
+      <button type="submit" name="login">Login</button>
     </form>
   </div>
 </body>
