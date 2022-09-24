@@ -42,6 +42,17 @@ body {
   text-decoration: none;
   border-radius: 3px;
   /* padding: 0 0.5em; */
+  margin-right: 10px;
+}
+
+.container .logout {
+  display: inline-block;
+  width: 10%;
+  margin: auto;
+  text-decoration: none;
+  background-color: #fd292f;
+  color: var(--bg-color);
+  border-radius: 3px;
 }
 
 ::-webkit-input-placeholder {

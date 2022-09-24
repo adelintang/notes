@@ -33,8 +33,10 @@ if (isset($_POST["keyword"])) {
   <div class="container">
     <h1>Data Notes</h1>
 
-    <a href="page-input/input.php" class="tombol-tambah">Tambah +</a>
-    <a href="logout.php" class="logout">Logout</a>
+    <div class="tombol">
+      <a href="page-input/input.php" class="tombol-tambah">Tambah +</a>
+      <a href="logout.php" class="logout">Logout</a>
+    </div>
 
     <form action="" method="post" class="search">
       <input type="text" name="keyword" placeholder="Masukkan Keyword..." autofocus autocomplete="off">
