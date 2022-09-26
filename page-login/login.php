@@ -47,8 +47,15 @@ if (isset($_POST["login"])) {
     <form action="" method="post" class="box">
       <h1>Login</h1>
       <div class="item">
-        <input type="text" name="user" placeholder="Masukkan username" required autocomplete="off"><br>
-        <input type="password" name="pass" placeholder="Masukkan password" required autocomplete="off">
+        <div class="user-box">
+          <input type="text" name="user" id="user" required autocomplete="off"><br>
+          <label for="user">Username</label>
+        </div>
+
+        <div class="user-box">
+          <input type="password" name="pass" id="pass" required autocomplete="off">
+          <label for="pass">Password</label>
+        </div>
       </div>
       <button type="submit" name="login">Login</button>
     </form>
