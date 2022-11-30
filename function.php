@@ -76,3 +76,41 @@ function cari($keyword)
 
   return query($query);
 }
+
+function register($data)
+{
+  global $conn;
+
+  $user = strtolower(stripslashes($data["user"]));
+  $pass = mysqli_real_escape_string($conn, $data["pass"]);
+  $pass2 = mysqli_real_escape_string($conn, $data["pass2"]);
+
+  $result = mysqli_query($conn, "SELECT username FROM user WHERE username = '$user'");
+
+  if (mysqli_fetch_assoc($result)) {
+    echo "
+      <script>
+       alert('username sudah terdaftar!');
+      </script>
+    ";
+
+    return false;
+  }
+
+  if ($pass !== $pass2) {
+    echo "
+      <script>
+        alert('konfimasi password tidak sesuai!');
+      </script>
+    ";
+
+    return false;
+  }
+
+  $pass = password_hash($pass, PASSWORD_DEFAULT);
+
+  mysqli_query($conn, "INSERT INTO user VALUES
+               ('', '$user', '$pass')");
+
+  return mysqli_affected_rows($conn);
+}

@@ -9,7 +9,7 @@ if (!isset($_SESSION["login"])) {
 // memanggil file function
 require 'function.php';
 
-$datas = query("SELECT * FROM datauser");
+$datas = query("SELECT * FROM datauser ORDER BY dateTime DESC");
 
 // ketika tombol search di tekan
 if (isset($_POST["keyword"])) {

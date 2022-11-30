@@ -6,29 +6,41 @@ if (isset($_SESSION["login"])) {
   exit;
 }
 
+require '../function.php';
+
 if (isset($_POST["login"])) {
   $user = $_POST["user"];
   $pass = $_POST["pass"];
 
-  if ($user == 'admin' && $pass == 'admin123') {
-    // set session
-    $_SESSION["login"] = true;
+  $confirmUser = mysqli_query($conn, "SELECT * FROM user WHERE username = '$user'");
 
-    echo "
-      <script>
-        alert('Login Berhasil');
-        document.location.href='../index.php';
-      </script>
-    ";
+  if (mysqli_num_rows($confirmUser) === 1) {
+    $row = mysqli_fetch_assoc($confirmUser);
+
+    if (password_verify($pass, $row["password"])) {
+      $_SESSION["login"] = true;
+
+      echo "
+        <script>
+          alert('Login Berhasil');
+          document.location.href='../index.php';
+        </script>
+      ";
+    } else {
+      echo "
+        <script>
+          alert('Username / Password salah!');
+        </script>
+      ";
+    }
   } else {
     echo "
       <script>
         alert('Username / Password salah!');
-     </script>
+      </script>
     ";
   }
 }
-
 
 ?>
 <!DOCTYPE html>
@@ -58,6 +70,7 @@ if (isset($_POST["login"])) {
         </div>
       </div>
       <button type="submit" name="login">Login</button>
+      <a href="../page-register/register.php">register?</a>
     </form>
   </div>
 </body>
